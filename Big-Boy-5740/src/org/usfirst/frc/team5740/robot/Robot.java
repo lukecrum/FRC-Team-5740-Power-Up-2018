@@ -6,12 +6,10 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team5740.robot;
-import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Victor;
-import org.usfirst.frc.team5740.robot.Drive;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team5740.robot.subsystems.Drive;
+import org.usfirst.frc.team5740.robot.subsystems.RobotObjects;
 
+import edu.wpi.first.wpilibj.IterativeRobot;
 
 public class Robot extends IterativeRobot {
 	
