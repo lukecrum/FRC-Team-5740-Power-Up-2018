@@ -8,5 +8,8 @@ public class Elevator extends Subsystem {
     public void initDefaultCommand() {
 
     }
+    public static void lift() {
+    		
+    }
 }
 
