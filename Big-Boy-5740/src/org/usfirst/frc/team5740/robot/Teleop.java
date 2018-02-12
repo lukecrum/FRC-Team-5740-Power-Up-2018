@@ -1,4 +1,7 @@
 package org.usfirst.frc.team5740.robot;
+import org.usfirst.frc.team5740.robot.subsystems.Claw;
+import org.usfirst.frc.team5740.robot.subsystems.Drive;
+import org.usfirst.frc.team5740.robot.subsystems.Elevator;
 import org.usfirst.frc.team5740.robot.subsystems.RobotObjects;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -20,9 +23,9 @@ public class Teleop extends Subsystem {
     }
     public void Periodic() {
     		if(RobotObjects.controller1.getRawAxis(3) != 0) {
-    			RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kReverse);
+    			Drive.shift("up");
     		} else {
-     		 RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kForward);
+     		 Drive.shift("down");
      	  }
          
     		if(RobotObjects.controller2.getRawAxis(5) != 0) {
@@ -30,12 +33,12 @@ public class Teleop extends Subsystem {
          }
          
          if(RobotObjects.controller2.getRawAxis(2) != 0) {
-             RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kReverse);
-             RobotObjects.clawIntake.setSpeed(1);
+             Claw.retract();
          }
   
          if(RobotObjects.controller2.getRawAxis(3) != 0) {
-             RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kReverse);
+             Claw.extend();
+             
          }  
          
          if (RobotObjects.controller1.getRawButton(7) != false) {
@@ -44,6 +47,9 @@ public class Teleop extends Subsystem {
          if (RobotObjects.controller1.getRawButton(8) != false) {
              RobotObjects.elevatorSolenoid.set(DoubleSolenoid.Value.kForward);
          }
- }
+         if (RobotObjects.controller2.getRawAxis(1) != 0) {
+        	 	Elevator.lift(RobotObjects.controller2.getRawAxis(1));
+         }
+    }
 }
 
