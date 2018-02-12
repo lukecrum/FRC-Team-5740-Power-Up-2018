@@ -8,11 +8,18 @@ public class AutoCommands extends Subsystem {
 	
 	static String gameData = DriverStation.getInstance().getGameSpecificMessage();
 	
+	AutoCommands(String position) {
+		switch(position) {
+			case "left":
+				selectAuto("left");
+			case "right":
+		}
+	}
     public void initDefaultCommand() {
     		
     }
     
-    public void LL() {
+    public static void LL() {
 
 		Drive.resetEncoders();
 		Drive.driveDistance(174.75);
@@ -21,7 +28,7 @@ public class AutoCommands extends Subsystem {
 		
 	}
 
-	public void LR() {
+	public static void LR() {
 		Drive.resetEncoders();
 		Drive.driveDistance(208);
 		Drive.turn(90);
@@ -30,14 +37,14 @@ public class AutoCommands extends Subsystem {
 		Drive.driveDistance(12);
 	}
 
-	public void RR() {
+	public static void RR() {
 		Drive.resetEncoders();
 		Drive.driveDistance(174.75);
 		Drive.turn(-90);
 		Drive.driveDistance(25.19);
 	}
 
-	public void RL() {
+	public static void RL() {
 		Drive.resetEncoders();
 		Drive.driveDistance(208);
 		Drive.turn(-90);
@@ -46,20 +53,32 @@ public class AutoCommands extends Subsystem {
 		Drive.driveDistance(12);
 	}
 	
-	public static void selectAuto() {
-		if(gameData.length() > 0)
-        {
-			if(gameData.charAt(0) == 'L')
+	public static void selectAuto(String roboPosition) {
+		switch(roboPosition){
+		case "left":
+			if(gameData.length() > 0)
 			{
-				
-			} else {
-
+				if(gameData.charAt(0) == 'L')
+				{
+					LL();
+				} else {
+					RL();
+				}
 			}
-        }
+		case "right":
+			if(gameData.length() > 0)
+			{
+				if(gameData.charAt(0) == 'L')
+				{
+					RL();
+				} else {
+					RR();
+				}
+			}
+		}
 	}
 	
-	public static void runAuto() {
-		
-	}
+    
+	
 }
 

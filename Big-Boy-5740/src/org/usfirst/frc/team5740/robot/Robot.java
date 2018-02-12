@@ -10,19 +10,26 @@ import org.usfirst.frc.team5740.robot.subsystems.Drive;
 import org.usfirst.frc.team5740.robot.subsystems.RobotObjects;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 public class Robot extends IterativeRobot {
+	
+	Command autonomousCommand;
+	SendableChooser autoChooser;
 	
 	@Override
 	public void robotInit() {
 		RobotObjects.gyro.calibrate();
+		autoChooser = new SendableChooser();
+		autoChooser.addDefault("Robot at Left", new AutoCommands("left"));
+		autoChooser.addObject("Robot at Right", new AutoCommands("right"));
 	}
 
 
 	@Override
 	public void autonomousInit() {
-	AutoCommands.selectAuto();
-	AutoCommands.runAuto();
+
 	}
 
 
