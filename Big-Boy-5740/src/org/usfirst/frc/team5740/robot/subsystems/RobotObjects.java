@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5740.robot.subsystems;
 
+import org.usfirst.frc.team5740.robot.Constants;
+
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
@@ -10,8 +12,8 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 public class RobotObjects {
-	public static Victor leftDrive = new Victor(0);
-	public static Victor rightDrive = new Victor(1);
+	public static Victor leftDrive = new Victor(Constants.leftDriveMotorPWM);
+	public static Victor rightDrive = new Victor(Constants.rightDriveMotorPWM);
 	public static Encoder e1 = new Encoder(0, 1);
 	public static Encoder e2 = new Encoder(2, 3);
 	public static DifferentialDrive drive = new DifferentialDrive(leftDrive, rightDrive);
