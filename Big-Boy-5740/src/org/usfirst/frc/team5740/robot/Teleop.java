@@ -22,34 +22,35 @@ public class Teleop extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void Periodic() {
-    		if(RobotObjects.controller1.getRawAxis(3) != 0) {
-    			Drive.shift("up");
-    		} else {
-     		 Drive.shift("down");
-     	  }
+    	if(RobotObjects.controller1.getRawAxis(3) != 0) {
+    		Drive.shift("up");
+    	} else {
+     		Drive.shift("down");
+     	}
          
-    		if(RobotObjects.controller2.getRawAxis(5) != 0) {
+    	if(RobotObjects.controller2.getRawAxis(5) != 0) {
             RobotObjects.clawRotation.setSpeed(RobotObjects.controller2.getRawAxis(5));
-         }
+        }
          
-         if(RobotObjects.controller2.getRawAxis(2) != 0) {
-             Claw.retract();
-         }
+        if(RobotObjects.controller2.getRawAxis(2) != 0) {
+            Claw.retract();
+        }
   
-         if(RobotObjects.controller2.getRawAxis(3) != 0) {
-             Claw.extend();
-             
-         }  
+        if(RobotObjects.controller2.getRawAxis(3) != 0) {
+            Claw.extend(); 
+        }  
          
-         if (RobotObjects.controller1.getRawButton(7) != false) {
-             RobotObjects.rampSolenoid.set(DoubleSolenoid.Value.kForward);
-         }
-         if (RobotObjects.controller1.getRawButton(8) != false) {
-             RobotObjects.elevatorSolenoid.set(DoubleSolenoid.Value.kForward);
-         }
-         if (RobotObjects.controller2.getRawAxis(1) != 0) {
-        	 	Elevator.lift(RobotObjects.controller2.getRawAxis(1));
-         }
+        if (RobotObjects.controller1.getRawButton(7) != false) {
+            RobotObjects.rampSolenoid.set(DoubleSolenoid.Value.kForward);
+        }
+        
+        if (RobotObjects.controller1.getRawButton(8) != false) {
+            RobotObjects.elevatorSolenoid.set(DoubleSolenoid.Value.kForward);
+        }
+        
+        if (RobotObjects.controller2.getRawAxis(1) != 0) {
+        	Elevator.lift(RobotObjects.controller2.getRawAxis(1));
+        }
     }
 }
 
