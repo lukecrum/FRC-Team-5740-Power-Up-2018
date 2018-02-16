@@ -8,7 +8,10 @@ public class Elevator extends Subsystem {
 
     }
     public static void lift(double value) {
-    		RobotObjects.elevatorGroup.set(value);
+    		/*RobotObjects.eTalon1.set(, value);
+    		RobotObjects.eTalon2.set(, value);
+    		RobotObjects.eTalon3.set(, value);
+    		RobotObjects.eTalon4.set(, value);*/
     }
   
 }

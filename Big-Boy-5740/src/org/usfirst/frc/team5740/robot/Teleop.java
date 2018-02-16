@@ -49,7 +49,7 @@ public class Teleop extends Subsystem {
         }
         
         if (RobotObjects.controller2.getRawAxis(1) != 0) {
-        	Elevator.lift(RobotObjects.controller2.getRawAxis(1));
+        	//Elevator.lift(RobotObjects.controller2.getRawAxis(1));
         }
     }
 }

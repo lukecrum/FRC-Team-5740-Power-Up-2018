@@ -15,8 +15,8 @@ public class Drive extends Subsystem {
     static double turnP = 0;
     
     public static void resetEncoders() {
-    		RobotObjects.e1.reset();
-    		RobotObjects.e2.reset();
+    		RobotObjects.leftDriveEncoder.reset();
+    		RobotObjects.rightDriveEncoder.reset();
     }
     
     
@@ -27,7 +27,7 @@ public class Drive extends Subsystem {
 		resetEncoders();
 		RobotObjects.gyro.reset();
 		double turn = RobotObjects.gyro.getAngle() * 0.05;
-		while(-RobotObjects.e1.get() < dist && ds.isAutonomous() && ds.isEnabled() ) {
+		while(-RobotObjects.leftDriveEncoder.get() < dist && ds.isAutonomous() && ds.isEnabled() ) {
 			RobotObjects.drive.arcadeDrive(-1,  turn);
 		}
     }
@@ -48,8 +48,8 @@ public class Drive extends Subsystem {
 		RobotObjects.gyro.reset();
 		double turn = RobotObjects.gyro.getAngle() * 0.05;
 		
-		while(-RobotObjects.e1.get() < dist && ds.isAutonomous() && ds.isEnabled() ) {
-			double error = -RobotObjects.e1.get() - dist;
+		while(-RobotObjects.leftDriveEncoder.get() < dist && ds.isAutonomous() && ds.isEnabled() ) {
+			double error = -RobotObjects.leftDriveEncoder.get() - dist;
 			RobotObjects.drive.arcadeDrive(error*driveP,  turn);
 		}
 	}
