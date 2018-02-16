@@ -1,7 +1,7 @@
 package org.usfirst.frc.team5740.robot.subsystems;
 
 import org.usfirst.frc.team5740.robot.Constants;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX; 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
@@ -18,10 +18,10 @@ public class RobotObjects {
 	public static Spark clawRotation = new Spark(Constants.clawRotationSparkPWM);
 	public static DifferentialDrive drive = new DifferentialDrive(leftDrive, rightDrive);
 	
-/*	public static TalonSRX eTalon1 = new TalonSRX(Constants.eTalon1CAN);
+	public static TalonSRX eTalon1 = new TalonSRX(Constants.eTalon1CAN);
 	public static TalonSRX eTalon2 = new TalonSRX(Constants.eTalon2CAN);
 	public static TalonSRX eTalon3 = new TalonSRX(Constants.eTalon3CAN);
-	public static TalonSRX eTalon4 = new TalonSRX(Constants.eTalon4CAN);*/
+	public static TalonSRX eTalon4 = new TalonSRX(Constants.eTalon4CAN);
 //	public static SpeedControllerGroup elevatorGroup = new SpeedControllerGroup(eTalon1, eTalon2, eTalon3, eTalon4);
 	
 	public static Encoder leftDriveEncoder = new Encoder(Constants.leftDriveEncoderPortOne, Constants.leftDriveEncoderPortTwo);

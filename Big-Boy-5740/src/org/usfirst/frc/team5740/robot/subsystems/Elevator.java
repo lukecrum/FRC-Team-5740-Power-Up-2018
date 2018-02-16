@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5740.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Elevator extends Subsystem {
@@ -8,10 +10,10 @@ public class Elevator extends Subsystem {
 
     }
     public static void lift(double value) {
-    		/*RobotObjects.eTalon1.set(, value);
-    		RobotObjects.eTalon2.set(, value);
-    		RobotObjects.eTalon3.set(, value);
-    		RobotObjects.eTalon4.set(, value);*/
+    		RobotObjects.eTalon1.set(ControlMode.PercentOutput, value);
+    		RobotObjects.eTalon2.set(ControlMode.PercentOutput, value);
+    		RobotObjects.eTalon3.set(ControlMode.PercentOutput, value);
+    		RobotObjects.eTalon4.set(ControlMode.PercentOutput, value);
     }
   
 }
