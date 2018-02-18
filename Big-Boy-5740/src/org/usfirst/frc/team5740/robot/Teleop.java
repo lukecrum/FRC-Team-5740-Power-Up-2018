@@ -34,14 +34,6 @@ public class Teleop extends Subsystem {
         if(RobotObjects.controller2.getRawAxis(3) != 0) {
             Claw.extend(); 
         }  
-         
-        if (RobotObjects.controller1.getRawButton(7) != false) {
-            RobotObjects.rampSolenoid.set(DoubleSolenoid.Value.kForward);
-        }
-        
-        if (RobotObjects.controller1.getRawButton(8) != false) {
-            RobotObjects.elevatorSolenoid.set(DoubleSolenoid.Value.kForward);
-        }
         
         if (RobotObjects.controller2.getRawAxis(1) != 0) {
         	Elevator.lift(RobotObjects.controller2.getRawAxis(1));

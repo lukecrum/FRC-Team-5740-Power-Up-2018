@@ -30,8 +30,6 @@ public class RobotObjects {
 	
 	public static DoubleSolenoid clawSolenoid = new DoubleSolenoid(Constants.clawSolenoidPortOne, Constants.clawSolenoidPortTwo);
 	public static DoubleSolenoid shiftSolenoid = new DoubleSolenoid(Constants.shiftSolenoidPortOne, Constants.shiftSolenoidPortTwo);
-	public static DoubleSolenoid elevatorSolenoid = new DoubleSolenoid(Constants.elevatorSolenoidPortOne, Constants.elevatorSolenoidPortTwo);
-	public static DoubleSolenoid rampSolenoid = new DoubleSolenoid(Constants.rampSolenoidPortOne, Constants.rampSolenoidPortTwo);
 	
 	public static Joystick controller1 = new Joystick(Constants.controller1Port);
 	public static Joystick controller2 = new Joystick(Constants.controller2Port);
