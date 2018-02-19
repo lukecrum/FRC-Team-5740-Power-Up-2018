@@ -16,12 +16,13 @@ public class Teleop extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public static void Periodic() {
-    	if(RobotObjects.controller1.getRawAxis(3) != 0) {
-    		Drive.shift("up");
-    	} else {
-     		Drive.shift("down");
-     	}
-         
+    	if(RobotObjects.controller1.getRawAxis(4) == 0) {	
+    		if(RobotObjects.controller1.getRawAxis(3) != 0) {
+    			Drive.shift("up");
+    		} else {
+    			Drive.shift("down");
+    		}
+    	} 
     	if(RobotObjects.controller2.getRawAxis(5) != 0) {
             RobotObjects.clawRotation.setSpeed(RobotObjects.controller2.getRawAxis(5));
         }
