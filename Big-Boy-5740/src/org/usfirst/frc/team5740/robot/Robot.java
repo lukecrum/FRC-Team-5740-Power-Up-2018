@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
+import edu.wpi.first.wpilibj.Spark;
+
 public class Robot extends IterativeRobot {
 	
 	Command autonomousCommand;
@@ -25,6 +27,7 @@ public class Robot extends IterativeRobot {
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Robot at Left", new AutoCommands("left"));
 		autoChooser.addObject("Robot at Right", new AutoCommands("right"));
+		
 	}
 
 
