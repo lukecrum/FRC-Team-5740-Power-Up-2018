@@ -37,8 +37,8 @@ public class Teleop extends Subsystem {
         	Claw.limpNoodle();
         }
         
-        if(RobotObjects.controller2.getRawAxis(1) > .5 || RobotObjects.controller2.getRawAxis(1) < -.5 ) {
-        	Elevator.lift(RobotObjects.controller2.getRawAxis(1));
+        if(RobotObjects.controller2.getRawAxis(1) > .25 || RobotObjects.controller2.getRawAxis(1) < -.25 ) {
+        	Elevator.lift(-RobotObjects.controller2.getRawAxis(1));
         } else {	
         	Elevator.lift(0);        	
         }
