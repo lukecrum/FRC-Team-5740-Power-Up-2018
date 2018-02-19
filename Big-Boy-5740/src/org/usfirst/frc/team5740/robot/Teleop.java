@@ -16,7 +16,7 @@ public class Teleop extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void Periodic() {
+    public static void Periodic() {
     	if(RobotObjects.controller1.getRawAxis(3) != 0) {
     		Drive.shift("up");
     	} else {
