@@ -97,10 +97,10 @@ public class Drive extends Subsystem {
     public static void shift(String direction ) {
     		switch(direction){
     		case "up":
-    			RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kReverse);
+    			RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kForward);
     			break;
     		case "down":
-    			RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kForward);
+    			RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kReverse);
     			break;
     		}
     }
