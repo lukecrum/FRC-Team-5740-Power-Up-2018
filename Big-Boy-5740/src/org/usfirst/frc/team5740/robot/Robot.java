@@ -19,12 +19,12 @@ import edu.wpi.first.wpilibj.Spark;
 public class Robot extends IterativeRobot {
 	
 	Command autonomousCommand;
-	SendableChooser autoChooser;
+	SendableChooser<AutoCommands> autoChooser;
 	//.
 	@Override
 	public void robotInit() {
 		RobotObjects.gyro.calibrate();
-		autoChooser = new SendableChooser();
+		autoChooser = new SendableChooser<AutoCommands>();
 		autoChooser.addDefault("Robot at Left", new AutoCommands("left"));
 		autoChooser.addObject("Robot at Right", new AutoCommands("right"));
 		
