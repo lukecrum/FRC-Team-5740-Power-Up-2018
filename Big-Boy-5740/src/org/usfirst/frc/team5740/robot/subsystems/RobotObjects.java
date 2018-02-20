@@ -23,18 +23,17 @@ public class RobotObjects {
 	public static TalonSRX eTalon3 = new TalonSRX(Constants.eTalon3CAN);
 	public static TalonSRX eTalon4 = new TalonSRX(Constants.eTalon4CAN);
 	
+	public static DigitalInput flipperHighLimit = new DigitalInput(Constants.flipperHighLimitPort);
+	public static DigitalInput flipperLowLimit = new DigitalInput(Constants.flipperLowLimitPort);
+	
 	public static Encoder leftDriveEncoder = new Encoder(Constants.leftDriveEncoderPortOne, Constants.leftDriveEncoderPortTwo);
 	public static Encoder rightDriveEncoder = new Encoder(Constants.rightDriveEncoderPortOne, Constants.rightDriveEncoderPortTwo);
+	public static Encoder clawRotationEncoder = new Encoder(Constants.clawRotationEncoderPortOne, Constants.clawRotationEncoderPortTwo);
 	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	
 	public static DoubleSolenoid clawSolenoid = new DoubleSolenoid(Constants.clawSolenoidPortOne, Constants.clawSolenoidPortTwo);
 	public static DoubleSolenoid shiftSolenoid = new DoubleSolenoid(Constants.shiftSolenoidPortOne, Constants.shiftSolenoidPortTwo);
-	public static DoubleSolenoid elevatorSolenoid = new DoubleSolenoid(Constants.elevatorSolenoidPortOne, Constants.elevatorSolenoidPortTwo);
-	public static DoubleSolenoid rampSolenoid = new DoubleSolenoid(Constants.rampSolenoidPortOne, Constants.rampSolenoidPortTwo);
 	
 	public static Joystick controller1 = new Joystick(Constants.controller1Port);
 	public static Joystick controller2 = new Joystick(Constants.controller2Port);
-	
-	public static DigitalInput flipperHighLimit = new DigitalInput(Constants.flipperHighLimitPort);
-	public static DigitalInput flipperLowLimit = new DigitalInput(Constants.flipperLowLimitPort);
 }	

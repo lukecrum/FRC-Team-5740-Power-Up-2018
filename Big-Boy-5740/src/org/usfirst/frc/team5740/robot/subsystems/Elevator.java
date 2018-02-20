@@ -10,7 +10,7 @@ public class Elevator extends Subsystem {
 
     }
     public static void lift(double value) {
-    	if(RobotObjects.flipperLowLimit.get() != 0 || flipperHighLimit.get() != 0) {
+    	if(RobotObjects.flipperLowLimit.get() != false || RobotObjects.flipperHighLimit.get() != false) {
     		RobotObjects.eTalon1.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon2.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon3.set(ControlMode.PercentOutput, value);
