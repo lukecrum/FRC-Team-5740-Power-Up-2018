@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;     		
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 //import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -18,10 +19,10 @@ public class RobotObjects {
 	public static Spark clawRotation = new Spark(Constants.clawRotationSparkPWM);
 	public static DifferentialDrive drive = new DifferentialDrive(leftDrive, rightDrive);
 	
-	public static TalonSRX eTalon1 = new TalonSRX(Constants.eTalon1CAN);
-	public static TalonSRX eTalon2 = new TalonSRX(Constants.eTalon2CAN);
-	public static TalonSRX eTalon3 = new TalonSRX(Constants.eTalon3CAN);
-	public static TalonSRX eTalon4 = new TalonSRX(Constants.eTalon4CAN);
+	public static Talon eTalon1 = new Talon(Constants.eTalon1CAN);
+	public static Talon eTalon2 = new Talon(Constants.eTalon2CAN);
+	public static Talon eTalon3 = new Talon(Constants.eTalon3CAN);
+	public static Talon eTalon4 = new Talon(Constants.eTalon4CAN);
 //	public static SpeedControllerGroup elevatorGroup = new SpeedControllerGroup(eTalon1, eTalon2, eTalon3, eTalon4);
 	
 	public static Encoder leftDriveEncoder = new Encoder(Constants.leftDriveEncoderPortOne, Constants.leftDriveEncoderPortTwo);
