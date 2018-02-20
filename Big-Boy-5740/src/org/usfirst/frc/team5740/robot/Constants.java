@@ -13,7 +13,6 @@ public class Constants {
 	public static final Integer clawRotationEncoderPortOne = 4;
 	public static final Integer clawRotationEncoderPortTwo = 5;
 
-
 	public static final Integer clawSolenoidPortOne = 0;
 	public static final Integer clawSolenoidPortTwo = 1;
 	public static final Integer shiftSolenoidPortOne = 2;
