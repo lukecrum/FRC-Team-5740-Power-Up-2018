@@ -21,7 +21,7 @@ public class Claw extends Subsystem {
     }
     
     public static void retract() {
-    		RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kReverse);    		
+    	RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kReverse);    		
     }
 }
 

@@ -16,22 +16,22 @@ public class Teleop extends Subsystem {
     }
     public static void Periodic() {
     	if(RobotObjects.controller1.getRawAxis(4) <.25) {	
-    		if(RobotObjects.controller1.getRawAxis(3) > .1) {
+    		if(RobotObjects.controller1.getRawAxis(3) > .25) {
     			Drive.shift("up");
     		} else {
     			Drive.shift("down");
     		}
     	} 
+    	
     	if(RobotObjects.controller2.getRawAxis(5) > .5 || RobotObjects.controller2.getRawAxis(5) < -.5) {
             RobotObjects.clawRotation.setSpeed(-RobotObjects.controller2.getRawAxis(5));
         } else {
             RobotObjects.clawRotation.setSpeed(0);
-        	
         }
          
-        if(RobotObjects.controller2.getRawAxis(2) > .5) {
+        if(RobotObjects.controller2.getRawAxis(3) > .5) {
             Claw.retract();
-        } else if(RobotObjects.controller2.getRawAxis(3) > .5) {
+        } else if(RobotObjects.controller2.getRawAxis(2) > .5) {
             Claw.extend(); 
         } else {
         	Claw.limpNoodle();
