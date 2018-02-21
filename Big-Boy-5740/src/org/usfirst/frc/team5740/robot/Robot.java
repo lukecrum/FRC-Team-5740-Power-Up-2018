@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		//Drive.periodicDrive();
-		//Teleop.Periodic();
+		Teleop.Periodic();
 		if(RobotObjects.controller2.getRawButton(4) != false) {
 			System.out.println(RobotObjects.clawRotationEncoder.get());
 		}
