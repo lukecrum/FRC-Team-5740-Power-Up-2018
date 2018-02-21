@@ -20,26 +20,14 @@ public class Claw extends Subsystem {
     public static void retract() {
     	RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kReverse);    		
     }
-    public static void moveClaw(String direction) {
-    	RobotObjects.clawRotationEncoder.reset();
-    	switch(direction) {
-    	case "up":
-    		if(last == "down") {
-    		while(RobotObjects.clawRotationEncoder.get() < 14200) {
-    			RobotObjects.clawRotation.setSpeed(1);
-    		}
-    		last = "up";
-    		}
-
-    		
-    	case "down":
-    		if(last == "up") {
-    		while(RobotObjects.clawRotationEncoder.get() > -14200) {
-    			RobotObjects.clawRotation.setSpeed(-1);
-    		}
-    		last = "down";
-    	}
+    public static void moveClawUp() {
+		while(RobotObjects.clawRotationEncoder.get() < 720) {
+				RobotObjects.clawRotation.set(1);
+			if(RobotObjects.clawRotationEncoder.get() > 720) {
+				RobotObjects.clawRotation.set(0);
+			}
+		}
     	}
     }
-}
+
 

@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team5740.robot;
+import org.usfirst.frc.team5740.robot.subsystems.Claw;
 import org.usfirst.frc.team5740.robot.subsystems.Drive;
 import org.usfirst.frc.team5740.robot.subsystems.RobotObjects;
 import org.usfirst.frc.team5740.robot.Teleop;
@@ -20,7 +21,6 @@ public class Robot extends IterativeRobot {
 	
 	Command autonomousCommand;
 	SendableChooser<AutoCommands> autoChooser;
-	//.
 	@Override
 	public void robotInit() {
 		RobotObjects.gyro.calibrate();
@@ -44,8 +44,20 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void teleopPeriodic() {
-		Drive.periodicDrive();
-		Teleop.Periodic();
+		//Drive.periodicDrive();
+		//Teleop.Periodic();
+		if(RobotObjects.controller2.getRawButton(4) != false) {
+			System.out.println(RobotObjects.clawRotationEncoder.get());
+		}
+		if(RobotObjects.controller2.getRawButton(1) != false) {
+			RobotObjects.clawRotationEncoder.reset();
+			System.out.println("Reset Encoder!");
+		}
+		if(RobotObjects.controller2.getRawButton(2) != false) {
+			Claw.moveClawUp();
+			System.out.println("claw up");
+		}
+
 	}
 
 	@Override
