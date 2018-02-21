@@ -24,7 +24,7 @@ public class Teleop extends Subsystem {
     	} 
     	
     	if(RobotObjects.controller2.getRawAxis(5) > .5 || RobotObjects.controller2.getRawAxis(5) < -.5) {
-            RobotObjects.clawRotation.setSpeed(-RobotObjects.controller2.getRawAxis(5));
+            RobotObjects.clawRotation.setSpeed(RobotObjects.controller2.getRawAxis(5));
         } else {
             RobotObjects.clawRotation.setSpeed(0);
         }
