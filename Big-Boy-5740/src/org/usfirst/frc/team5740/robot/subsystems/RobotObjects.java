@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-
+import edu.wpi.first.wpilibj.CameraServer;
 public class RobotObjects {
 	public static Victor leftDrive = new Victor(Constants.leftDriveMotorPWM);
 	public static Victor rightDrive = new Victor(Constants.rightDriveMotorPWM);
@@ -25,9 +25,10 @@ public class RobotObjects {
 	
 	public static DigitalInput flipperHighLimit = new DigitalInput(Constants.flipperHighLimitPort);
 	public static DigitalInput flipperLowLimit = new DigitalInput(Constants.flipperLowLimitPort);
+	public static DigitalInput clawLimit = new DigitalInput(Constants.clawLimitPort);
 	
 	public static Encoder leftDriveEncoder = new Encoder(Constants.leftDriveEncoderPortOne, Constants.leftDriveEncoderPortTwo);
-	public static Encoder rightDriveEncoder = new Encoder(Constants.rightDriveEncoderPortOne, Constants.rightDriveEncoderPortTwo);
+	public static Encoder rightDriveEncoder = new Encoder(Constants.rightDriveEncoderPortOne, Constants.rightDriveEncoderPortTwo, true);
 	public static Encoder clawRotationEncoder = new Encoder(Constants.clawRotationEncoderPortOne, Constants.clawRotationEncoderPortTwo);
 	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	
@@ -36,4 +37,5 @@ public class RobotObjects {
 	
 	public static Joystick controller1 = new Joystick(Constants.controller1Port);
 	public static Joystick controller2 = new Joystick(Constants.controller2Port);
+
 }	

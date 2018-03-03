@@ -11,17 +11,17 @@ public class Elevator extends Subsystem {
     }
     public static void lift(double value) {
     	value = -value;
-    	if(RobotObjects.flipperLowLimit.get() != true || RobotObjects.flipperHighLimit.get() != true) {
+    	if(RobotObjects.flipperLowLimit.get() != true && RobotObjects.flipperHighLimit.get() != true) {
     		RobotObjects.eTalon1.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon2.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon3.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon4.set(ControlMode.PercentOutput, value);
-    	} else if (RobotObjects.flipperLowLimit.get() == true && value > 0) {
+    	} else if (RobotObjects.flipperLowLimit.get() == true && value < 0) {
     		RobotObjects.eTalon1.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon2.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon3.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon4.set(ControlMode.PercentOutput, value);
-    	} else if (RobotObjects.flipperHighLimit.get() == true && value < 0) {
+    	} else if (RobotObjects.flipperHighLimit.get() == true && value > 0) {
     		RobotObjects.eTalon1.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon2.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon3.set(ControlMode.PercentOutput, value);

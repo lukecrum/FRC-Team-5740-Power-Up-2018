@@ -15,8 +15,8 @@ public class Constants {
 
 	public static final Integer clawSolenoidPortOne = 0;
 	public static final Integer clawSolenoidPortTwo = 1;
-	public static final Integer shiftSolenoidPortOne = 2;
-	public static final Integer shiftSolenoidPortTwo = 3;
+	public static final Integer shiftSolenoidPortOne = 4;
+	public static final Integer shiftSolenoidPortTwo = 5;
 
 	public static final Integer controller1Port = 0;
 	public static final Integer controller2Port = 1;
@@ -27,5 +27,6 @@ public class Constants {
 	public static final Integer eTalon4CAN = 4;
 	
 	public static final Integer flipperHighLimitPort = 6;
-	public static final Integer flipperLowLimitPort = 7;	
+	public static final Integer flipperLowLimitPort = 7;
+	public static final Integer clawLimitPort = 8;
 }
