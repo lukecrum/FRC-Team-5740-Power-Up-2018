@@ -9,6 +9,7 @@ public class Claw extends Subsystem {
     public void initDefaultCommand() {
 
     }
+    
     public static void limpNoodle() {
     	RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kOff);
     }
@@ -20,6 +21,7 @@ public class Claw extends Subsystem {
     public static void retract() {
     	RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kReverse);    		
     }
+    
     public static void moveClawUp() {
 		while(RobotObjects.clawRotationEncoder.get() < 720) {
 				RobotObjects.clawRotation.set(1);
@@ -27,7 +29,7 @@ public class Claw extends Subsystem {
 				RobotObjects.clawRotation.set(0);
 			}
 		}
-    	}
-    }
+   	}
+}
 
 
