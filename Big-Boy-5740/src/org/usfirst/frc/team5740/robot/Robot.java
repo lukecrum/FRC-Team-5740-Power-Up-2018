@@ -51,7 +51,8 @@ public class Robot extends IterativeRobot {
 		//	Drive.Dump();
 		//}
 		//AutoCommands.Right();
-		Drive.driveDistance(78);
+		//Drive.driveDistance(78);
+		AutoMapper.MapPeriodic();
 	}
 
 

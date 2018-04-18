@@ -75,6 +75,12 @@ public class AutoCommands extends Subsystem {
 	   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);	
 	}
 
+	public static void CL() {
+		Drive.resetEncoders();
+		Drive.driveDistance(20);
+		Drive.turn(45);
+		Drive.driveDistance()
+	}
 	public static void RR() {
 		Drive.resetEncoders();
 		Drive.driveDistance(174.75);
