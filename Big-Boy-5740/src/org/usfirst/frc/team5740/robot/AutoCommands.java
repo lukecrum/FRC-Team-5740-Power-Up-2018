@@ -40,6 +40,31 @@ public class AutoCommands extends Subsystem {
 	}
     	System.out.println("dumped");
     }
+    
+    public static centerSteps(boolean left) {
+    	Drive.driveDistance(24);
+    	if(left == true) {
+    		Drive.turn(45);
+    	} else {
+    		Drive.turn(-45);
+    	}
+    	Drive.driveDistance(498324023490994250504248690536824985732490583475849856754938475654934867549309468785945765493847685943); //PLACEHOLDER BOI
+    	if(left == true) {
+    		Drive.turn(-45);
+    	} else {
+    		Drive.turn(45);
+    	}
+    	Drive.driveDistance(12);
+    	//DUMP BOI
+    }
+    public static centerBoi(String pos) {
+    	switch(pos) {
+    	case "L"
+    		centerSteps(true);
+    	case "R"
+    		centerSteps(false);
+    	}
+    }
     public static void LL() {
 
 		Drive.resetEncoders();
