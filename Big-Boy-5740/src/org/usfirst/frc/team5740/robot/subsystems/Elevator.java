@@ -14,23 +14,32 @@ public class Elevator extends Subsystem {
     	if(RobotObjects.flipperLowLimit.get() != true && RobotObjects.flipperHighLimit.get() != true) {
     		RobotObjects.eTalon1.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon2.set(ControlMode.PercentOutput, value);
-    		RobotObjects.eTalon3.set(ControlMode.PercentOutput, value);
-    		RobotObjects.eTalon4.set(ControlMode.PercentOutput, value);
-    	} else if (RobotObjects.flipperLowLimit.get() == true && value < 0) {
+
+    	} else if (RobotObjects.flipperLowLimit.get() == true && value > 0) {
     		RobotObjects.eTalon1.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon2.set(ControlMode.PercentOutput, value);
-    		RobotObjects.eTalon3.set(ControlMode.PercentOutput, value);
-    		RobotObjects.eTalon4.set(ControlMode.PercentOutput, value);
-    	} else if (RobotObjects.flipperHighLimit.get() == true && value > 0) {
+  
+    	} else if (RobotObjects.flipperHighLimit.get() == true && value < 0) {
     		RobotObjects.eTalon1.set(ControlMode.PercentOutput, value);
     		RobotObjects.eTalon2.set(ControlMode.PercentOutput, value);
-    		RobotObjects.eTalon3.set(ControlMode.PercentOutput, value);
-    		RobotObjects.eTalon4.set(ControlMode.PercentOutput, value);
+
     	} else {
     		RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0);
     		RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);
-    		RobotObjects.eTalon3.set(ControlMode.PercentOutput, 0);
-    		RobotObjects.eTalon4.set(ControlMode.PercentOutput, 0);
+
+    	}
+    }
+    
+    public static void liftplz(double value) {
+    	value = -value;
+    	if(value != 0) {
+    		RobotObjects.eTalon1.set(ControlMode.PercentOutput, value);
+    		RobotObjects.eTalon2.set(ControlMode.PercentOutput, value);
+
+    	}else {
+    		RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0);
+    		RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);
+
     	}
     }
     

@@ -59,16 +59,31 @@ public class Drive extends Subsystem {
     		double errorAngle = RobotObjects.gyro.getAngle() - target;
     		while(Math.abs(errorAngle) > 0 && ds.isAutonomous() && ds.isEnabled() ) {
     			if(target > 0) {
-    				RobotObjects.drive.arcadeDrive(0, 0.5);
+    				RobotObjects.drive.arcadeDrive(0, 0.25);
     				errorAngle = RobotObjects.gyro.getAngle() - target;
     			} else {
-    				RobotObjects.drive.arcadeDrive(0, -0.5);
+    				RobotObjects.drive.arcadeDrive(0, -0.25);
     				errorAngle = RobotObjects.gyro.getAngle() - target;
     			}
     				
     			
     		}
     }
+    public static void turnPlease(Integer angle) {
+    	RobotObjects.gyro.reset();
+    	double error = Math.abs(RobotObjects.gyro.getAngle() - angle);
+    	double target = RobotObjects.gyro.getAngle() + angle;
+    	while(Math.abs(error) > 0) {
+    		if(target > 0) {
+    			RobotObjects.drive.arcadeDrive(0, 0.25);
+    			error = error - RobotObjects.gyro.getAngle();
+    		}
+    		if(target < 0) {
+    			RobotObjects.drive.arcadeDrive(0, -0.25);
+				error = error - RobotObjects.gyro.getAngle();
+    		}
+    	}
+    	}
     public static void turnNeg(Integer degrees) {
 		//RobotObjects.gyro.reset();
 		DriverStation ds = DriverStation.getInstance();
@@ -128,18 +143,18 @@ public class Drive extends Subsystem {
 */
     
     public static void periodicDrive() {
-    		RobotObjects.drive.arcadeDrive(-RobotObjects.controller1.getRawAxis(1), -RobotObjects.controller1.getRawAxis(4));
+    		RobotObjects.drive.arcadeDrive(-RobotObjects.controller1.getRawAxis(1), RobotObjects.controller1.getRawAxis(4));
     }
     
     public static void shift(String direction ) {
-    		switch(direction){
+    	/*	switch(direction){
     		case "up":
     			RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kForward);
     			break;
     		case "down":
     			RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kReverse);
     			break;
-    		}
+    		}*/
     }
     
 	public void initDefaultCommand() {
@@ -151,8 +166,6 @@ public class Drive extends Subsystem {
 		while(RobotObjects.flipperHighLimit.get() != true) {
 			RobotObjects.eTalon1.set(ControlMode.PercentOutput, -0.3);
 		   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, -0.3);	
-			RobotObjects.eTalon3.set(ControlMode.PercentOutput, -0.3);
-		   	RobotObjects.eTalon4.set(ControlMode.PercentOutput, -0.3);	
 	   	}
 		RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0);
 	   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);	

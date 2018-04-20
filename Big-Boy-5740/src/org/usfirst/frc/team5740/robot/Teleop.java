@@ -3,7 +3,10 @@ package org.usfirst.frc.team5740.robot;
 import org.usfirst.frc.team5740.robot.subsystems.Claw;
 import org.usfirst.frc.team5740.robot.subsystems.Drive;
 import org.usfirst.frc.team5740.robot.subsystems.Elevator;
+import org.usfirst.frc.team5740.robot.subsystems.RampyBoi;
 import org.usfirst.frc.team5740.robot.subsystems.RobotObjects;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -17,14 +20,14 @@ public class Teleop extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public static void Periodic() {
-    	if(RobotObjects.controller1.getRawAxis(3) != 0) {	
+    /*	if(RobotObjects.controller1.getRawAxis(3) != 0) {	
     		
     			RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kForward);
     			
     		} else {
     			RobotObjects.shiftSolenoid.set(DoubleSolenoid.Value.kReverse);
     	} 
-    	double speed = 0.35;
+    	double speed = 0.4;
     /*	if(RobotObjects.controller2.getRawAxis(5) > .5 || RobotObjects.controller2.getRawAxis(5) < -.5) {
     		if(RobotObjects.controller2.getRawAxis(5) < 0 && RobotObjects.clawLimit.get() == true) {
    				RobotObjects.clawRotation.setSpeed(-RobotObjects.controller2.getRawAxis(5));
@@ -35,11 +38,11 @@ public class Teleop extends Subsystem {
    		} else {
    			RobotObjects.clawRotation.setSpeed(0);
    		}*/
-    if(RobotObjects.controller2.getRawButton(3) != false) {
-    	speed = 0.25;
+    /*if(RobotObjects.controller2.getRawButton(3) != false) {
+    	speed = 0.3;
     }
     if(RobotObjects.controller2.getRawAxis(5) > .5 || RobotObjects.controller2.getRawAxis(5) < -.5) {
-    	RobotObjects.clawRotation.setSpeed(-RobotObjects.controller2.getRawAxis(5));
+    	RobotObjects.clawRotation.setSpeed(RobotObjects.controller2.getRawAxis(5));
     } else {
     	RobotObjects.clawRotation.setSpeed(0);
     }
@@ -52,22 +55,36 @@ public class Teleop extends Subsystem {
         }
         
         if(RobotObjects.controller2.getRawAxis(1) > .25 || RobotObjects.controller2.getRawAxis(1) < -.25 ) {
-        	Elevator.lift(-RobotObjects.controller2.getRawAxis(1) * speed);
+        	Elevator.lift(RobotObjects.controller2.getRawAxis(1) * speed);
         } else {	
         	Elevator.lift(0);        	
         }
         
         if(RobotObjects.controller2.getRawButton(1) != false) {
-        	RobotObjects.clawIntake.setSpeed(1);
+        	RobotObjects.clawTalon1.set(ControlMode.PercentOutput, 1);
+        	RobotObjects.clawTalon2.set(ControlMode.PercentOutput, 1);
         } else {
-        	RobotObjects.clawIntake.setSpeed(0);        	
+        	RobotObjects.clawTalon1.set(ControlMode.PercentOutput, 0); 
+        	RobotObjects.clawTalon2.set(ControlMode.PercentOutput, 0);
         }
         
         if(RobotObjects.controller2.getRawButton(2) != false) {
-        	RobotObjects.clawIntake.setSpeed(-1);
+        	RobotObjects.clawTalon1.set(ControlMode.PercentOutput, -1);
+        	RobotObjects.clawTalon2.set(ControlMode.PercentOutput, -1);
         } else {
-        	RobotObjects.clawIntake.setSpeed(0);        	
+        	RobotObjects.clawTalon1.set(ControlMode.PercentOutput, 0);
+        	RobotObjects.clawTalon2.set(ControlMode.PercentOutput, 0);
         }
+        if(RobotObjects.controller1.getRawButton(8) != false) {
+        	RampyBoi.Lift();
+        } else {
+        	RampyBoi.Stop();
+        }
+        if(RobotObjects.controller1.getRawButton(7) != false) {
+        	RobotObjects.rampSolenoid.set(DoubleSolenoid.Value.kReverse);
+        } else {
+        	RobotObjects.rampSolenoid.set(DoubleSolenoid.Value.kForward);
+        }*/
     }
 }
 

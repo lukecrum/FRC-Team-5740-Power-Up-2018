@@ -11,15 +11,15 @@ public class Claw extends Subsystem {
     }
     
     public static void limpNoodle() {
-    	RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kOff);
+    	//RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kOff);
     }
     
     public static void extend() {
-    	RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kForward);
+    	//RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kForward);
     }
     
     public static void retract() {
-    	RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kReverse);    		
+    	//RobotObjects.clawSolenoid.set(DoubleSolenoid.Value.kReverse);    		
     }
     
     public static void moveClawUp() {

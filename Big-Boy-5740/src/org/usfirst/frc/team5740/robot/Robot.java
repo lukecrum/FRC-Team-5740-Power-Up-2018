@@ -28,7 +28,7 @@ public class Robot extends IterativeRobot {
 	//SendableChooser<AutoCommands> autoChooser;
 	@Override
 	public void robotInit() {
-		CameraServer.getInstance().getInstance().startAutomaticCapture();
+	//	CameraServer.getInstance().getInstance().startAutomaticCapture();
 		RobotObjects.gyro.calibrate();
 		RobotObjects.gyro.reset();
 		//autoChooser = new SendableChooser<AutoCommands>();
@@ -41,6 +41,13 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void autonomousInit() {
+		/*RobotObjects.gyro.reset();
+		long t = System.currentTimeMillis();
+		long end = t+1500;
+		while(System.currentTimeMillis() < end) {
+			RobotObjects.drive.arcadeDrive(1, 0);
+		}
+		RobotObjects.drive.arcadeDrive(0, 0);*/
 		//Drive.driveDistance(140); //forward 100 inches
 		//Drive.turn(90); //right 90 degrees
 		//Timer.delay(0.5);
@@ -51,51 +58,42 @@ public class Robot extends IterativeRobot {
 		//	Drive.Dump();
 		//}
 		//AutoCommands.Right();
-		Drive.driveDistance(78);
+		//Drive.driveDistance(78);
+		//Drive.turnPlease(90);
+		//System.out.println(RobotObjects.gyro.getAngle());
+		RobotObjects.gyro.reset();
+		//AutoMoose.Start();
+		AutoMoose.RightJank();
 	}
 
 
 	@Override
 	public void autonomousPeriodic() {
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
+	/*	gameData = DriverStation.getInstance().getGameSpecificMessage();
 		if(gameData.charAt(0) =='R') {
-		if (RobotObjects.flipperHighLimit.get() != true) {
-			RobotObjects.eTalon1.set(ControlMode.PercentOutput, -0.3);
-		   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, -0.3);	
-			RobotObjects.eTalon3.set(ControlMode.PercentOutput, -0.3);
-		   	RobotObjects.eTalon4.set(ControlMode.PercentOutput, -0.3);	
+		if (RobotObjects.flipperHighLimit.get() == false) {
+			RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0.3);
+		   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0.3);		
 	   	} else {
 		RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0);
 	   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);	
 	}
 	}
-
+	*/
 	}
 	
 	@Override
 	public void teleopPeriodic() {
 		Drive.periodicDrive();
 		Teleop.Periodic();
-		/*if(RobotObjects.controller2.getRawButton(1) != false) {
-			System.out.println(RobotObjects.leftDriveEncoder.get());
-		} 
-		if(RobotObjects.controller2.getRawButton(2) != false) {
-			System.out.println(RobotObjects.rightDriveEncoder.get());
-		}*/ 
-		/*if(RobotObjects.controller2.getRawButton(1) != false) {
-			System.out.println("Right Encoder value: ");
-			System.out.println(RobotObjects.rightDriveEncoder.get());
-		}
-	
-		if(RobotObjects.controller2.getRawButton(1) != false) {
-			System.out.println("upper limit switch: ");
-			System.out.println(RobotObjects.flipperHighLimit.get());
+		if(RobotObjects.controller1.getRawButton(1) != false) {
+			System.out.println("Right encooder " + RobotObjects.rightNormalTalon.getSelectedSensorPosition(0));
+			System.out.println("Left encooder " + RobotObjects.leftNormalTalon.getSelectedSensorPosition(0));
+			System.out.println("Gyro: " + RobotObjects.gyro.getAngle());
 		}
 		if(RobotObjects.controller1.getRawButton(2) != false) {
-			System.out.println("lower limit switch: ");
-			System.out.println(RobotObjects.flipperLowLimit.get());
-		}*/
-
+			AutoMoose.resetEncoders();
+		}
 	}
 
 	@Override

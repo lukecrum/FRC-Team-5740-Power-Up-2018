@@ -32,8 +32,7 @@ public class AutoCommands extends Subsystem {
 		while(RobotObjects.flipperHighLimit.get() != true) {
 			RobotObjects.eTalon1.set(ControlMode.PercentOutput, -0.3);
 		   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, -0.3);	
-			RobotObjects.eTalon3.set(ControlMode.PercentOutput, -0.3);
-		   	RobotObjects.eTalon4.set(ControlMode.PercentOutput, -0.3);	
+	
 	   	}
 		RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0);
 	   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);	
@@ -41,14 +40,14 @@ public class AutoCommands extends Subsystem {
     	System.out.println("dumped");
     }
     
-    public static centerSteps(boolean left) {
+    public static void centerSteps(boolean left) {
     	Drive.driveDistance(24);
     	if(left == true) {
     		Drive.turn(45);
     	} else {
     		Drive.turn(-45);
     	}
-    	Drive.driveDistance(498324023490994250504248690536824985732490583475849856754938475654934867549309468785945765493847685943); //PLACEHOLDER BOI
+    	//Drive.driveDistance(498324023490994250504248690536824985732490583475849856754938475654934867549309468785945765493847685943); //PLACEHOLDER BOI
     	if(left == true) {
     		Drive.turn(-45);
     	} else {
@@ -57,11 +56,11 @@ public class AutoCommands extends Subsystem {
     	Drive.driveDistance(12);
     	//DUMP BOI
     }
-    public static centerBoi(String pos) {
+    public static void centerBoi(String pos) {
     	switch(pos) {
-    	case "L"
+    	case "L":
     		centerSteps(true);
-    	case "R"
+    	case "R":
     		centerSteps(false);
     	}
     }
@@ -75,8 +74,6 @@ public class AutoCommands extends Subsystem {
 		while(RobotObjects.flipperHighLimit.get() != true) {
 			RobotObjects.eTalon1.set(ControlMode.PercentOutput, -0.3);
 		   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, -0.3);	
-			RobotObjects.eTalon3.set(ControlMode.PercentOutput, -0.3);
-		   	RobotObjects.eTalon4.set(ControlMode.PercentOutput, -0.3);	
 	   	}
 		RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0);
 	   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);	
@@ -93,8 +90,7 @@ public class AutoCommands extends Subsystem {
 		while(RobotObjects.flipperHighLimit.get() != true) {
 			RobotObjects.eTalon1.set(ControlMode.PercentOutput, -0.3);
 		   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, -0.3);	
-			RobotObjects.eTalon3.set(ControlMode.PercentOutput, -0.3);
-		   	RobotObjects.eTalon4.set(ControlMode.PercentOutput, -0.3);	
+
 	   	}
 		RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0);
 	   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);	
@@ -109,8 +105,7 @@ public class AutoCommands extends Subsystem {
 		while(RobotObjects.flipperHighLimit.get() != true) {
 			RobotObjects.eTalon1.set(ControlMode.PercentOutput, -0.3);
 		   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, -0.3);	
-			RobotObjects.eTalon3.set(ControlMode.PercentOutput, -0.3);
-		   	RobotObjects.eTalon4.set(ControlMode.PercentOutput, -0.3);	
+
 	   	}
 		RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0);
 	   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);	
@@ -128,8 +123,7 @@ public class AutoCommands extends Subsystem {
 		while(RobotObjects.flipperHighLimit.get() != true) {
 			RobotObjects.eTalon1.set(ControlMode.PercentOutput, -0.3);
 		   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, -0.3);	
-			RobotObjects.eTalon3.set(ControlMode.PercentOutput, -0.3);
-		   	RobotObjects.eTalon4.set(ControlMode.PercentOutput, -0.3);	
+	
 	   	}
 		RobotObjects.eTalon1.set(ControlMode.PercentOutput, 0);
 	   	RobotObjects.eTalon2.set(ControlMode.PercentOutput, 0);	
