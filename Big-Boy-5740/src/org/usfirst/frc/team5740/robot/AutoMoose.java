@@ -181,51 +181,61 @@ public class AutoMoose {
 		//turn left: right: -2698, left: 3318
 		//step 3: 5160
 	}
-	static void leftStepTwo() {
-
+	static void leftStepTwo() {	
 		resetEncoders();
-		while(RobotObjects.leftNormalTalon.getSelectedSensorPosition(0) < 3176) {
+		while(RobotObjects.leftNormalTalon.getSelectedSensorPosition(0) < 2876) {
 			RobotObjects.drive.arcadeDrive(0, -1);
 			System.out.println("left encoder: " + RobotObjects.rightNormalTalon.getSelectedSensorPosition(0)); //these 2 run then it stops
 		}
 		resetEncoders();
-		while(average() < 10760) {
+		while(average() < 9000) {
 			RobotObjects.drive.arcadeDrive(1, 0);
 			System.out.println("Average: " + average());
+		}
+		resetEncoders();
+		while(-RobotObjects.rightNormalTalon.getSelectedSensorPosition(0) < 2600) {
+			RobotObjects.drive.arcadeDrive(0, 1);
+			System.out.println("right encoder: " + -RobotObjects.rightNormalTalon.getSelectedSensorPosition(0));
+		}
+		resetEncoders();
+		while(average() < 8460) {
+			RobotObjects.drive.arcadeDrive(1,  0);
+			System.out.println("average: " + average());
 		}
 	}
 	static void leftStepThree() {
 		resetEncoders();
 		while(RobotObjects.leftNormalTalon.getSelectedSensorPosition(0) > -2698) {
 			RobotObjects.drive.arcadeDrive(0, -1);
-			System.out.println("right encoder: " + -RobotObjects.leftNormalTalon.getSelectedSensorPosition(0));
+			System.out.println("Left encoder: " + -RobotObjects.leftNormalTalon.getSelectedSensorPosition(0));
 		}
 		resetEncoders();
-		while(average() < 5160) {
+		while(average() < 5560) {
 			RobotObjects.drive.arcadeDrive(1, 0);
 			System.out.println("Avg: " + average());
 		}
 	}
 	static void leftStepFour() {
 		resetEncoders();
-		while(RobotObjects.rightNormalTalon.getSelectedSensorPosition(0) < 2500) {
+		while(RobotObjects.rightNormalTalon.getSelectedSensorPosition(0) < 2100) {
 			RobotObjects.drive.arcadeDrive(0, 1);
 		}
 		resetEncoders();
-		while(average() < 5160) {
+		while(average() < 5260) {
 			RobotObjects.drive.arcadeDrive(1,  0);
 		}
 	}
 
 	public static void LeftJank() {
 		resetEncoders();
-		while(average() < 11900) {
+		while(average() < 11000) {
 			RobotObjects.drive.arcadeDrive(1,0);
 			System.out.println("Average: " + average()); //nothing happens after we run this
 		}
 		leftStepTwo();
-		leftStepThree();
-		leftStepFour();
+	//	leftStepThree();
+	//	resetEncoders();
+	//	leftStepFour();
 	}
 }
 
