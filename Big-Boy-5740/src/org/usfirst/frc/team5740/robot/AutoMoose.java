@@ -197,7 +197,7 @@ public class AutoMoose {
 	static void leftStepThree() {
 		resetEncoders();
 		while(RobotObjects.leftNormalTalon.getSelectedSensorPosition(0) > -2698) {
-			RobotObjects.drive.arcadeDrive(0, 1);
+			RobotObjects.drive.arcadeDrive(0, -1);
 			System.out.println("right encoder: " + -RobotObjects.leftNormalTalon.getSelectedSensorPosition(0));
 		}
 		resetEncoders();

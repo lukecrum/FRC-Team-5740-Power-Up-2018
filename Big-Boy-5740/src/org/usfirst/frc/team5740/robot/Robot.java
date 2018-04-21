@@ -63,7 +63,7 @@ public class Robot extends IterativeRobot {
 		//System.out.println(RobotObjects.gyro.getAngle());
 		RobotObjects.gyro.reset();
 		//AutoMoose.Start();
-		AutoMoose.RightJank();
+		AutoMoose.LeftJank();
 	}
 
 
