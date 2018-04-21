@@ -40,8 +40,8 @@ public class AutoMoose {
 	}*/
 
 	static void resetEncoders() {
-		RobotObjects.leftNormalTalon.setSelectedSensorPosition(0, 0, 1000);
-		RobotObjects.rightNormalTalon.setSelectedSensorPosition(0, 0, 1000);
+		RobotObjects.leftNormalTalon.setSelectedSensorPosition(0, 0, 0);
+		RobotObjects.rightNormalTalon.setSelectedSensorPosition(0, 0, 0);
 	}
 	public static void followTrajectory() {
 		Waypoint[] points = new Waypoint[] {
@@ -138,7 +138,7 @@ public class AutoMoose {
 			System.out.println("right encoder: " + RobotObjects.rightNormalTalon.getSelectedSensorPosition(0)); //these 2 run then it stops
 		}
 		resetEncoders();
-		while(average() < 10760) {
+		while(average() < 10500) {
 			RobotObjects.drive.arcadeDrive(1, 0);
 			System.out.println("Average: " + average());
 		}
@@ -150,24 +150,24 @@ public class AutoMoose {
 			System.out.println("Left encoder: " + -RobotObjects.leftNormalTalon.getSelectedSensorPosition(0));
 		}
 		resetEncoders();
-		while(average() < 5160) {
+		while(average() < 5560) {
 			RobotObjects.drive.arcadeDrive(1, 0);
 			System.out.println("Avg: " + average());
 		}
 	}
 	static void rightStepFour() {
 		resetEncoders();
-		while(RobotObjects.leftNormalTalon.getSelectedSensorPosition(0) < 2500) {
+		while(RobotObjects.leftNormalTalon.getSelectedSensorPosition(0) < 2100) {
 			RobotObjects.drive.arcadeDrive(0, -1);
 		}
 		resetEncoders();
-		while(average() < 5160) {
+		while(average() < 5260) {
 			RobotObjects.drive.arcadeDrive(1,  0);
 		}
 	}
 	public static void RightJank() {
 		resetEncoders();
-		while(average() < 11900) {
+		while(average() < 3500) {
 			RobotObjects.drive.arcadeDrive(1,0);
 			System.out.println("Average: " + average()); //nothing happens after we run this
 		}
